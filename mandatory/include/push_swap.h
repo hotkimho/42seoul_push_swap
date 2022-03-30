@@ -6,7 +6,7 @@
 /*   By: hkim2 <hkim2@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 16:20:13 by hkim2             #+#    #+#             */
-/*   Updated: 2022/03/30 20:26:46 by hkim2            ###   ########.fr       */
+/*   Updated: 2022/03/30 20:44:30 by hkim2            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,8 @@ void	rr(t_stack **a, t_stack **b);
 void	rra(t_stack **a);
 void	rrb(t_stack **b);
 void	rrr(t_stack **a, t_stack **b);
+
+//parse_util
+int	is_space(char c);
+int	ft_atoi(const char *str);
 #endif
