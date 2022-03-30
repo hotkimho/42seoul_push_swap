@@ -1,30 +1,26 @@
-NAME = a
+NAME = push_swap
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 AR = ar rcs
 RM = rm -f
 
-LIB_DIR = ./lib/
 
 FUNC =	main.c\
-		child.c\
+		stack_util.c\
 		error.c\
-		parser.c\
-		pipe.c\
-		read_file.c\
+		operation_swap.c\
+		operation_push.c\
+		operation_rotate.c\
+		operation_reverse_rotate.c
 
-BONUS_FUNC =
 
-SRCS = $(addprefix src/, $(FUNC))
+SRCS = $(addprefix mandatory/src/, $(FUNC))
 OBJS = $(SRCS:c=o)
 
-BONUS_SRCS = $(addprefix bonus/, $(BONUS_FUNC))
-BONUS_OBJS = $(BONUS_SRCS:c=o)
 
 $(NAME) : $(OBJS)
-	make -C $(LIB_DIR)
-	$(CC) $(CFLAGS) -L $(LIB_DIR) -lft -o $(NAME) $^
+	$(CC) $(CFLAGS) -o $(NAME) $^
 
 all : $(NAME)
 
