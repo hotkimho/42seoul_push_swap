@@ -6,7 +6,7 @@
 /*   By: hkim2 <hkim2@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 17:52:23 by hkim2             #+#    #+#             */
-/*   Updated: 2022/03/30 17:53:27 by hkim2            ###   ########.fr       */
+/*   Updated: 2022/03/30 18:03:44 by hkim2            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,5 @@ int	ft_strlen(char *str)
 void	error_msg(char *message)
 {
 	write(1, message, ft_strlen(message));
+	exit(1);
 }
