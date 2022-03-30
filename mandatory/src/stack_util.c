@@ -6,7 +6,7 @@
 /*   By: hkim2 <hkim2@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 16:19:59 by hkim2             #+#    #+#             */
-/*   Updated: 2022/03/30 17:45:39 by hkim2            ###   ########.fr       */
+/*   Updated: 2022/03/30 20:16:24 by hkim2            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void	push_node(t_stack **stk, int data)
 	(*stk)->prev = node;
 	*stk = node;
 }
+
 int		pop_node(t_stack **stk)
 {
 	t_stack	*delNode;
@@ -44,11 +45,13 @@ int		pop_node(t_stack **stk)
 		return (data);
 	}
 	delNode = *stk;
+	(*stk)->next->prev = (*stk)->prev;
 	*stk = (*stk)->next;
 	data = delNode->data;
 	free(delNode);
 	return (data);
 }
+
 int		get_stack_size(t_stack *stk)
 {
 	int	idx;
