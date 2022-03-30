@@ -12,7 +12,8 @@ FUNC =	main.c\
 		operation_swap.c\
 		operation_push.c\
 		operation_rotate.c\
-		operation_reverse_rotate.c
+		operation_reverse_rotate.c\
+		parse_util.c
 
 
 SRCS = $(addprefix mandatory/src/, $(FUNC))
