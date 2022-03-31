@@ -13,7 +13,11 @@ FUNC =	main.c\
 		operation_push.c\
 		operation_rotate.c\
 		operation_reverse_rotate.c\
-		parse_util.c
+		parse.c\
+		parse_util.c\
+		ft_split.c\
+		pivot.c
+
 
 
 SRCS = $(addprefix mandatory/src/, $(FUNC))
