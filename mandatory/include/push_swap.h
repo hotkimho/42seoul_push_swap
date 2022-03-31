@@ -6,7 +6,7 @@
 /*   By: hkim2 <hkim2@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 16:20:13 by hkim2             #+#    #+#             */
-/*   Updated: 2022/03/30 20:44:30 by hkim2            ###   ########.fr       */
+/*   Updated: 2022/03/31 20:16:24 by hkim2            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
-
+# include <stdio.h>
 typedef struct		s_stack
 {
 	int		data;
@@ -27,12 +27,13 @@ typedef struct		s_stack
 
 //error
 void	error_msg(char *message);
+int	ft_strlen(char *str);
 
 //stack_util
 void	push_node(t_stack **stk, int data);
 int		pop_node(t_stack **stk);
 int		get_stack_size(t_stack *stk);
-void	stack_init(t_stack **a, t_stack **b);
+void	init_stack(t_stack **a, t_stack **b);
 
 //operation_swap
 void	sa(t_stack **a);
@@ -52,7 +53,22 @@ void	rra(t_stack **a);
 void	rrb(t_stack **b);
 void	rrr(t_stack **a, t_stack **b);
 
+//parse
+void	init_push_a(t_stack **a, t_stack **b);
+void	parse_argv(int argc, char **argv, t_stack **b);
+
 //parse_util
 int	is_space(char c);
+int	is_digit(char ch);
 int	ft_atoi(const char *str);
+void	validate(char *str);
+
+//ft_split
+char	**ft_error(char **s);
+int		find_size(char *s, char c);
+void	ft_strcpy(char *dest, char *src, int start, int end);
+char	**ft_split(char *s, char c);
+
+//pivot
+int		get_pivot(t_stack *stk, int size);
 #endif

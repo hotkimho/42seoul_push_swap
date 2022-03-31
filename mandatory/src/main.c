@@ -1,28 +1,101 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hkim2 <hkim2@student.42seoul.kr>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/30 16:20:05 by hkim2             #+#    #+#             */
+/*   Updated: 2022/03/31 20:16:59 by hkim2            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/push_swap.h"
 #include<stdio.h>
 
-void	push_node(t_stack *a, int data)
-{
-	t_stack	*node;
+int count;
 
-	a->data =2;
-	node = (t_stack *)malloc(sizeof(t_stack));
-	node->data = data;
-	node->next = a;
-	printf("data : %d\n", data);
+void print_stack(t_stack *stk)
+{
+	while(stk)
+	{
+		printf("%d\n", stk->data);
+		stk = stk->next;
+	}
+	printf("\n");
 }
 
-int main()
+void	print(t_stack *a, t_stack *b)
+{
+	int len;
+	int i;
+
+	if (get_stack_size(a) > get_stack_size(b))
+		len = get_stack_size(a);
+	else
+		len = get_stack_size(b);
+	
+	for (i = 0; i < len; i++)
+	{
+		if (a)
+		{
+			printf("%d ", a->data);
+			a = a->next;
+		}
+		if (b)
+		{
+			printf("%d", b->data);
+			b = b->next;
+		}
+		printf("\n");
+	}
+}
+
+void	A_to_B(t_stack **a, t_stack **b, int size)
+{
+	int	idx;
+	int a_count, b_count;
+
+	a_count = b_count = 0;
+	if (size == 1)
+		return;
+	idx = 0;
+	while (idx < size)
+	{
+		if ((*a)->data >= 5)
+		{
+			ra(a);
+			a_count++;
+		}
+		else
+		{
+			pb(b, a);
+			b_count++;
+		}
+		idx++;
+	}
+	while (a_count)
+	{
+		rra(a);
+		a_count--;
+	}
+}
+
+//10 5 11 5 12 6 13 6
+
+
+int main(int argc, char *argv[])
 {
 	t_stack	*a;
 	t_stack	*b;
 
-	a = (t_stack *)malloc(sizeof(t_stack));
-	printf("qwe\n");
-	push_node(a, 1);
-	push_node(a, 2);
-
-	printf("%d\n", a->data);
-
-
+	init_stack(&a, &b);
+	parse_argv(argc, argv, &b);
+	init_push_a(&a, &b);
+	
+	get_pivot(a, get_stack_size(a));
+	//A_to_B(&a, &b, get_stack_size(a));
+	//print(a, b);
+	exit(0);
 }
+
