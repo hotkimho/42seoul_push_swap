@@ -6,7 +6,7 @@
 /*   By: hkim2 <hkim2@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 16:19:59 by hkim2             #+#    #+#             */
-/*   Updated: 2022/03/30 20:16:24 by hkim2            ###   ########.fr       */
+/*   Updated: 2022/03/31 16:27:08 by hkim2            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int		get_stack_size(t_stack *stk)
 	}
 	return (idx);
 }
-void	stack_init(t_stack **a, t_stack **b)
+void	init_stack(t_stack **a, t_stack **b)
 {
 	*a = NULL;
 	*b = NULL;

@@ -6,7 +6,7 @@
 /*   By: hkim2 <hkim2@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 20:42:08 by hkim2             #+#    #+#             */
-/*   Updated: 2022/03/30 20:42:37 by hkim2            ###   ########.fr       */
+/*   Updated: 2022/03/31 16:18:47 by hkim2            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,12 @@ int	is_space(char c)
 		return (0);
 }
 
+int	is_digit(char ch)
+{
+	if (ch >= 48 && ch <= 57)
+		return (1);
+	return (0);
+}
 int	ft_atoi(const char *str)
 {
 	int	value;
@@ -31,6 +37,8 @@ int	ft_atoi(const char *str)
 		str++;
 	if (*str == '+' || *str == '-')
 	{
+		if (*(str + 1) == '+' || *(str + 1) == '-' || *(str + 1) == 0)
+			error_msg("Error\n");
 		if (*str == '-')
 			sign = -1;
 		str++;
@@ -42,4 +50,21 @@ int	ft_atoi(const char *str)
 		str++;
 	}
 	return (value * sign);
+}
+
+void	validate(char *str)
+{
+	int	i;
+
+	i = -1;
+	while (str[++i])
+	{
+		if (is_digit(str[i]))
+			continue;
+		else if (is_space(str[i]))
+			continue;
+		else if (str[i] == '+' || str[i] == '-')
+			continue;
+		error_msg("Error\n");
+	}
 }
