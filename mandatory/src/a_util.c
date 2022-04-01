@@ -21,7 +21,7 @@ int		get_max_data(t_stack *stk, int size)
 	return (data);
 }
 
-void	check_two(t_stack **a)
+void	a_check_two(t_stack **a)
 {
 	if (check_ascending(*a, 2))
 		return;

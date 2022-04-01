@@ -16,7 +16,10 @@ FUNC =	main.c\
 		parse.c\
 		parse_util.c\
 		ft_split.c\
-		pivot.c
+		pivot.c\
+		check.c\
+		a_util.c\
+		b_util.c
 
 
 
@@ -30,7 +33,7 @@ $(NAME) : $(OBJS)
 all : $(NAME)
 
 clean :
-	$(RM) $(OBJS) $(BONUS_OBJS)
+	$(RM) $(OBJS)
 
 fclean : clean
 	$(RM) $(NAME)

@@ -34,7 +34,7 @@ void	print(t_stack *a, t_stack *b)
 		len = get_stack_size(a);
 	else
 		len = get_stack_size(b);
-	
+
 	for (i = 0; i < len; i++)
 	{
 		if (a)
@@ -50,6 +50,12 @@ void	print(t_stack *a, t_stack *b)
 		printf("\n");
 	}
 }
+void	B_to_A(t_stack **a, t_stack **b, int size)
+{
+
+}
+
+
 
 void	A_to_B(t_stack **a, t_stack **b, int size)
 {
@@ -74,11 +80,7 @@ void	A_to_B(t_stack **a, t_stack **b, int size)
 		}
 		idx++;
 	}
-	while (a_count)
-	{
-		rra(a);
-		a_count--;
-	}
+	A_to_B(a, b, )
 }
 
 //10 5 11 5 12 6 13 6
@@ -92,8 +94,11 @@ int main(int argc, char *argv[])
 	init_stack(&a, &b);
 	parse_argv(argc, argv, &b);
 	init_push_a(&a, &b);
-	
-	get_pivot(a, get_stack_size(a));
+
+	check_duplicate(a, get_stack_size(a));
+	//check_two(&a);
+	b_check_three(&a);
+	print_stack(a);
 	//A_to_B(&a, &b, get_stack_size(a));
 	//print(a, b);
 	exit(0);
