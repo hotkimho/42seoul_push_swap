@@ -23,6 +23,7 @@ void	ra(t_stack **a)
 	(*a)->next = NULL;
 	tmp->prev = *a;
 	*a = tmp;
+	write(1, "ra\n", 4);
 }
 
 void	rb(t_stack **b)
@@ -36,6 +37,7 @@ void	rb(t_stack **b)
 	(*b)->next = NULL;
 	tmp->prev = *b;
 	*b = tmp;
+	write(1, "rb\n", 4);
 }
 
 void	rr(t_stack **a, t_stack **b)
