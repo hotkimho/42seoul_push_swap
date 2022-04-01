@@ -71,4 +71,18 @@ char	**ft_split(char *s, char c);
 
 //pivot
 int		get_pivot(t_stack *stk, int size);
+
+//check
+int		check_ascending(t_stack *stk, int size);
+int		check_descending(t_stack *stk, int size);
+void	check_duplicate(t_stack *stk, int size);
+
+//a_util
+void	a_check_two(t_stack **a);
+void	a_check_three(t_stack **a);
+int		get_max_data(t_stack *stk, int size);
+
+//a_util
+void	b_check_two(t_stack **b);
+void	b_check_three(t_stack **b);
 #endif
