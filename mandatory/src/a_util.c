@@ -29,27 +29,27 @@ void	a_check_two(t_stack **a)
 }
 
 
-void	a_check_three(t_stack **a)
+void	a_check_three(t_stack **a, t_stack **b)
 {
-	int	max;
-
 	if (check_ascending(*a, 3))
 		return ;
-	max = get_max_data(*a, 3);
-	if ((*a)->data == max)
+	if ((*a)->data == get_max_data(*a, 3))
 	{
-		ra(a);
-		if (!check_ascending(*a, 3))
+		if ((*a)->next->data > (*a)->next->next->data)
 			sa(a);
-		return ;
-	}
-	if ((*a)->next->data == max)
-	{
+		pb(b, a);
 		sa(a);
-		ra(a);
+		pa(a, b);
+		if ((*a)->next->data > (*a)->next->next->data)
+			sa(a);
+	}
+	if ((*a)->next->data == get_max_data(*a, 3))
+	{
+		pb(b, a);
+		sa(a);
+		pa(a, b);
 		if (!check_ascending(*a, 3))
 			sa(a);
-		return ;
 	}
 	else
 		if (!check_ascending(*a, 3))
