@@ -6,7 +6,7 @@
 /*   By: hkim2 <hkim2@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 20:15:32 by hkim2             #+#    #+#             */
-/*   Updated: 2022/03/31 20:35:00 by hkim2            ###   ########.fr       */
+/*   Updated: 2022/04/02 18:35:26 by hkim2            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,5 @@ int		get_pivot(t_stack *stk, int size)
 			return (arr[i]);
 		i++;
 	}
-	return (arr[size / 2]);
+	return (arr[0]);
 }
