@@ -6,7 +6,7 @@
 /*   By: hkim2 <hkim2@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 16:20:13 by hkim2             #+#    #+#             */
-/*   Updated: 2022/04/02 19:22:08 by hkim2            ###   ########.fr       */
+/*   Updated: 2022/04/02 21:16:27 by hkim2            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	push_node(t_stack **stk, int data);
 int		pop_node(t_stack **stk);
 int		get_stack_size(t_stack *stk);
 void	init_stack(t_stack **a, t_stack **b);
+void	free_stk(t_stack *stk);
 
 //operation_swap
 void	sa(t_stack **a);
@@ -89,4 +90,5 @@ void	b_check_three(t_stack **a, t_stack **b);
 //sort
 void	A_to_B(t_stack **a, t_stack **b, int size);
 void	B_to_A(t_stack **a, t_stack **b, int size);
+int	init_sorting(t_stack *stk, int size, int *a_count, int *b_count);
 #endif
