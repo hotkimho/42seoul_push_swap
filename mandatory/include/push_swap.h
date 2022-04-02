@@ -6,7 +6,7 @@
 /*   By: hkim2 <hkim2@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 16:20:13 by hkim2             #+#    #+#             */
-/*   Updated: 2022/03/31 20:16:24 by hkim2            ###   ########.fr       */
+/*   Updated: 2022/04/02 19:22:08 by hkim2            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,10 +79,14 @@ void	check_duplicate(t_stack *stk, int size);
 
 //a_util
 void	a_check_two(t_stack **a);
-void	a_check_three(t_stack **a);
+void	a_check_three(t_stack **a, t_stack **b);
 int		get_max_data(t_stack *stk, int size);
 
 //a_util
 void	b_check_two(t_stack **b);
-void	b_check_three(t_stack **b);
+void	b_check_three(t_stack **a, t_stack **b);
+
+//sort
+void	A_to_B(t_stack **a, t_stack **b, int size);
+void	B_to_A(t_stack **a, t_stack **b, int size);
 #endif
