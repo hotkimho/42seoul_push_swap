@@ -6,7 +6,7 @@
 /*   By: hkim2 <hkim2@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 18:27:09 by hkim2             #+#    #+#             */
-/*   Updated: 2022/03/30 20:26:03 by hkim2            ###   ########.fr       */
+/*   Updated: 2022/04/02 17:59:36 by hkim2            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@ void	pa(t_stack **a, t_stack **b)
 void	pb(t_stack **b, t_stack **a)
 {
 	if (get_stack_size(*a) == 0)
-		return ;
+	{
+		printf("----%d\n", (*a)->data);
+	}
 	push_node(b, (*a)->data);
 	pop_node(a);
 	write(1, "pb\n", 4);

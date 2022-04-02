@@ -6,7 +6,7 @@
 /*   By: hkim2 <hkim2@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 20:20:12 by hkim2             #+#    #+#             */
-/*   Updated: 2022/03/30 20:26:45 by hkim2            ###   ########.fr       */
+/*   Updated: 2022/04/02 18:59:11 by hkim2            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	rra(t_stack **a)
 
 	if (*a == NULL)
 		return;
+	if (get_stack_size(*a) <= 1)
+		return ;
 	tmp = (*a)->prev;
 	tmp->prev->next = NULL;
 	tmp->next = *a;
@@ -31,6 +33,8 @@ void	rrb(t_stack **b)
 
 	if (*b == NULL)
 		return;
+	if (get_stack_size(*b) <= 1)
+		return ;
 	tmp = (*b)->prev;
 	tmp->prev->next = NULL;
 	tmp->next = *b;
