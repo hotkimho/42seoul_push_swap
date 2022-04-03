@@ -6,7 +6,7 @@
 /*   By: hkim2 <hkim2@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 17:25:45 by hkim2             #+#    #+#             */
-/*   Updated: 2022/04/02 18:23:11 by hkim2            ###   ########.fr       */
+/*   Updated: 2022/04/03 19:21:17 by hkim2            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,17 @@ void	parse_argv(int argc, char **argv, t_stack **b)
 			push_node(b, ft_atoi(split_str[split_idx]));
 			split_idx++;
 		}
-		free(split_str);
+		//split_idx = 0;
+		//while (split_str[split_idx])
+		//{
+		//	free(split_str[split_idx]);
+		//	split_idx++;
+		//}
 		split_str = NULL;
 		idx++;
 	}
+	
+	if (idx == 5000)
+		b = NULL;
+	
 }
