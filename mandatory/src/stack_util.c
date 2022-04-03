@@ -6,7 +6,7 @@
 /*   By: hkim2 <hkim2@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 16:19:59 by hkim2             #+#    #+#             */
-/*   Updated: 2022/04/02 21:19:12 by hkim2            ###   ########.fr       */
+/*   Updated: 2022/04/03 19:21:23 by hkim2            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,16 +71,16 @@ void	init_stack(t_stack **a, t_stack **b)
 	*b = NULL;
 }
 
-void	free_stk(t_stack *stk)
+void	free_stk(t_stack **stk)
 {
 	t_stack	*tmp;
 
-	if (stk == NULL)
+	if (*stk == NULL)
 		return ;
-	while (stk)
+	while (*stk)
 	{
-		tmp = stk->next;
-		free(stk);
-		stk = tmp;
+		tmp = (*stk)->next;
+		free(*stk);
+		*stk = tmp;
 	}
 }
