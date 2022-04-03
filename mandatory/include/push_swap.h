@@ -6,7 +6,7 @@
 /*   By: hkim2 <hkim2@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 16:20:13 by hkim2             #+#    #+#             */
-/*   Updated: 2022/04/02 21:16:27 by hkim2            ###   ########.fr       */
+/*   Updated: 2022/04/03 20:11:44 by hkim2            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	push_node(t_stack **stk, int data);
 int		pop_node(t_stack **stk);
 int		get_stack_size(t_stack *stk);
 void	init_stack(t_stack **a, t_stack **b);
-void	free_stk(t_stack *stk);
+void	free_stk(t_stack **stk);
 
 //operation_swap
 void	sa(t_stack **a);
@@ -82,13 +82,22 @@ void	check_duplicate(t_stack *stk, int size);
 void	a_check_two(t_stack **a);
 void	a_check_three(t_stack **a, t_stack **b);
 int		get_max_data(t_stack *stk, int size);
+int		get_min_data(t_stack *stk, int size);
 
-//a_util
+//b_util
 void	b_check_two(t_stack **b);
 void	b_check_three(t_stack **a, t_stack **b);
+void	all_push_B_to_A(t_stack **a, t_stack **b, int size);
 
 //sort
 void	A_to_B(t_stack **a, t_stack **b, int size);
 void	B_to_A(t_stack **a, t_stack **b, int size);
 int	init_sorting(t_stack *stk, int size, int *a_count, int *b_count);
+
+//optimization
+void	a_three_optimize_sort(t_stack **a);
+void	b_three_optimize_sort(t_stack **b);
+
+//test
+void	print(t_stack *a, t_stack *b);
 #endif

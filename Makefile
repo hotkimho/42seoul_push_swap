@@ -19,7 +19,9 @@ FUNC =	main.c\
 		pivot.c\
 		check.c\
 		a_util.c\
-		b_util.c
+		b_util.c\
+		sort.c\
+		optimization.c
 
 
 
