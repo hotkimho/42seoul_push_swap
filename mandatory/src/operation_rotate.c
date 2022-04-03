@@ -6,7 +6,7 @@
 /*   By: hkim2 <hkim2@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 19:24:54 by hkim2             #+#    #+#             */
-/*   Updated: 2022/04/02 18:59:05 by hkim2            ###   ########.fr       */
+/*   Updated: 2022/04/03 17:23:22 by hkim2            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ra(t_stack **a)
 	(*a)->next = NULL;
 	tmp->prev = *a;
 	*a = tmp;
-	write(1, "ra\n", 4);
+	write(1, "ra\n", 3);
 }
 
 void	rb(t_stack **b)
@@ -41,7 +41,7 @@ void	rb(t_stack **b)
 	(*b)->next = NULL;
 	tmp->prev = *b;
 	*b = tmp;
-	write(1, "rb\n", 4);
+	write(1, "rb\n", 3);
 }
 
 void	rr(t_stack **a, t_stack **b)
