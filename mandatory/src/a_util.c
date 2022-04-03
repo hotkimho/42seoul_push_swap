@@ -6,7 +6,7 @@
 /*   By: hkim2 <hkim2@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 21:16:52 by hkim2             #+#    #+#             */
-/*   Updated: 2022/04/02 21:47:10 by hkim2            ###   ########.fr       */
+/*   Updated: 2022/04/03 17:51:21 by hkim2            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void	a_check_three(t_stack **a, t_stack **b)
 		return ;
 	if ((*a)->data == get_max_data(*a, 3))
 	{
+
 		if ((*a)->next->data > (*a)->next->next->data)
 			sa(a);
 		pb(b, a);

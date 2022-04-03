@@ -6,7 +6,7 @@
 /*   By: hkim2 <hkim2@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 21:16:57 by hkim2             #+#    #+#             */
-/*   Updated: 2022/04/02 21:16:58 by hkim2            ###   ########.fr       */
+/*   Updated: 2022/04/03 20:05:09 by hkim2            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,25 @@ void	b_check_two(t_stack **b)
 	sb(b);
 }
 
+void	all_push_B_to_A(t_stack **a, t_stack **b, int size)
+{
+	int	i;
+
+	if (!(*a) || !(*b))
+		error_msg("Error\n");
+	i = 0;
+	while (i < size)
+	{
+		pa(a, b);
+		i++;
+	}
+}
 
 void	b_check_three(t_stack **a, t_stack **b)
 {
-	int	max;
-
 	if (check_descending(*b, 3))
 		return ;
-	max = get_max_data(*b, 3);
-	
-	if ((*b)->data == max)
+	if ((*b)->data == get_max_data(*b, 3))
 	{
 		if (check_descending(*b, 3))
 			return;
@@ -36,7 +45,7 @@ void	b_check_three(t_stack **a, t_stack **b)
 		sb(b);
 		rrb(b);
 	}
-	if ((*b)->next->data == max)
+	else if ((*b)->next->data == get_max_data(*b, 3))
 	{
 		sb(b);
 		if (check_descending(*b, 3))
@@ -49,13 +58,10 @@ void	b_check_three(t_stack **a, t_stack **b)
 	{
 		if ((*b)->data < (*b)->next->data)
 			sb(b);
-		rb(b);
-		rb(b);
 		pa(a, b);
-		rrb(b);
-		rrb(b);
+		sb(b);
 		pb(b, a);
+		sb(b);
 	}
-	(*a)->data = (*a)->data;
 	return ;
 }
