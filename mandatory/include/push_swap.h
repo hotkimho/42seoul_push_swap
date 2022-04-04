@@ -6,7 +6,7 @@
 /*   By: hkim2 <hkim2@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 16:20:13 by hkim2             #+#    #+#             */
-/*   Updated: 2022/04/03 20:11:44 by hkim2            ###   ########.fr       */
+/*   Updated: 2022/04/04 19:32:37 by hkim2            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,12 @@ int	init_sorting(t_stack *stk, int size, int *a_count, int *b_count);
 //optimization
 void	a_three_optimize_sort(t_stack **a);
 void	b_three_optimize_sort(t_stack **b);
-
+int		a_four_optimize_sort(t_stack **a, t_stack **b);
+int		b_four_optimize_sort(t_stack **a, t_stack **b);
+int		a_four_optimize_sort2(t_stack **a, t_stack **b);
+void	a_exec_three_sort(t_stack **a, t_stack **b);
+int		a_five_optimize_sort(t_stack **a, t_stack **b);
+int	a_five_optimize_sort2(t_stack **a, t_stack **b);
 //test
 void	print(t_stack *a, t_stack *b);
 #endif

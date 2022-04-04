@@ -21,7 +21,8 @@ FUNC =	main.c\
 		a_util.c\
 		b_util.c\
 		sort.c\
-		optimization.c
+		a_optimization.c\
+		b_optimization.c\
 
 
 
