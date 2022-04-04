@@ -6,7 +6,7 @@
 /*   By: hkim2 <hkim2@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 16:20:05 by hkim2             #+#    #+#             */
-/*   Updated: 2022/04/03 19:45:27 by hkim2            ###   ########.fr       */
+/*   Updated: 2022/04/04 20:42:00 by hkim2            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,18 +68,13 @@ int main(int argc, char *argv[])
 	//1 0 3 6 7 5 4 2
 	init_stack(&a, &b);
 	parse_argv(argc, argv, &b);
-	//print_stack(b);
-	//free(argv);
-	//free_stk(&b);
-	//printf("%d\n", b->next->data);
-	//free_stk(&b);
-	//printf("%d\n", b->data);
-	
-	//print_stack(b);
 	init_push_a(&a, &b);
 	check_duplicate(a, get_stack_size(a));
 	A_to_B(&a, &b, get_stack_size(a));
+	//a_four_optimize_sort(&a,&b);
 	//a_check_three(&a, &b);
+	//b_four_optimize_sort(&b, &a);
+///	b_four_optimize_sort(&b, &a);
 	//print(a, b);//2  2 3 5 1 4
 //ARG="4 67 3 87 23"; ./push_swap $ARG | ./checker_OS $ARG
 	//free(a-//>next);

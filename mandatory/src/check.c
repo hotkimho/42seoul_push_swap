@@ -6,7 +6,7 @@
 /*   By: hkim2 <hkim2@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 21:17:02 by hkim2             #+#    #+#             */
-/*   Updated: 2022/04/02 21:17:05 by hkim2            ###   ########.fr       */
+/*   Updated: 2022/04/04 20:00:09 by hkim2            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	check_ascending(t_stack *stk, int size)
 	int	data;
 
 	if (!stk)
-		return (0);
+		error_msg("Error\n");
 	i = 0;
 	data = stk->data;
 	while (i < size)
@@ -68,7 +68,7 @@ int	check_descending(t_stack *stk, int size)
 	int	data;
 
 	if (!stk)
-		return (0);
+		error_msg("Error\n");
 	i = 0;
 	data = stk->data;
 	while (i < size)
