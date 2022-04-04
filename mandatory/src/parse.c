@@ -31,9 +31,9 @@ void	parse_argv(int argc, char **argv, t_stack **b)
 	int		idx;
 	int		split_idx;
 	char	**split_str;
-	
-	idx = 1;
-	while (idx < argc)
+
+	idx = 0;
+	while (++idx < argc)
 	{
 		validate(argv[idx]);
 		split_str = ft_split(argv[idx], ' ');
@@ -45,17 +45,9 @@ void	parse_argv(int argc, char **argv, t_stack **b)
 			push_node(b, ft_atoi(split_str[split_idx]));
 			split_idx++;
 		}
-		//split_idx = 0;
-		//while (split_str[split_idx])
-		//{
-		//	free(split_str[split_idx]);
-		//	split_idx++;
-		//}
-		split_str = NULL;
-		idx++;
+		split_idx = -1;
+		while (split_str[++split_idx])
+			free(split_str[split_idx]);
+		free(split_str);
 	}
-	
-	if (idx == 5000)
-		b = NULL;
-	
 }

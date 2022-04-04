@@ -21,7 +21,7 @@ void	push_node(t_stack **stk, int data)
 	node->next = NULL;
 	node->prev = NULL;
 	if (*stk == NULL)
-	{	
+	{
 		*stk = node;
 		(*stk)->prev = node;
 		return;
@@ -74,10 +74,14 @@ void	init_stack(t_stack **a, t_stack **b)
 void	free_stk(t_stack **stk)
 {
 	t_stack	*tmp;
+	int		i;
+	int		size;
 
 	if (*stk == NULL)
 		return ;
-	while (*stk)
+	i = 0;
+	size = get_stack_size(*stk);
+	while (i < size)
 	{
 		tmp = (*stk)->next;
 		free(*stk);
