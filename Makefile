@@ -20,9 +20,11 @@ FUNC =	main.c\
 		check.c\
 		a_util.c\
 		b_util.c\
-		sort.c\
+		a_sort.c\
+		b_sort.c\
 		a_optimization.c\
 		b_optimization.c\
+		operation_util.c\
 
 
 

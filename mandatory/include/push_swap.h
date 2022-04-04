@@ -27,7 +27,7 @@ typedef struct		s_stack
 
 //error
 void	error_msg(char *message);
-int	ft_strlen(char *str);
+int		ft_strlen(char *str);
 
 //stack_util
 void	push_node(t_stack **stk, int data);
@@ -83,26 +83,47 @@ void	a_check_two(t_stack **a);
 void	a_check_three(t_stack **a, t_stack **b);
 int		get_max_data(t_stack *stk, int size);
 int		get_min_data(t_stack *stk, int size);
+int		init_sorting(t_stack *stk, int size, int *a_count, int *b_count);
 
 //b_util
 void	b_check_two(t_stack **b);
 void	b_check_three(t_stack **a, t_stack **b);
 void	all_push_B_to_A(t_stack **a, t_stack **b, int size);
 
-//sort
+//a_sort
 void	A_to_B(t_stack **a, t_stack **b, int size);
-void	B_to_A(t_stack **a, t_stack **b, int size);
-int	init_sorting(t_stack *stk, int size, int *a_count, int *b_count);
+int		a_check_sorting(t_stack **a, t_stack **b, int size);
+int		a_check_push(t_stack *stk, int pivot);
+int		A_to_B_loop(t_stack **a, t_stack **b, int *b_count, int pivot);
+int		a_more_than_four(t_stack **a, t_stack **b, int size);
 
-//optimization
+//b_sort
+void	B_to_A(t_stack **a, t_stack **b, int size);
+int		b_check_sorting(t_stack **a , t_stack **b, int size);
+int		b_check_push(t_stack *stk, int pivot);
+int		b_more_than_four(t_stack **a, t_stack **b, int size);
+
+//a_optimization
 void	a_three_optimize_sort(t_stack **a);
-void	b_three_optimize_sort(t_stack **b);
-int		a_four_optimize_sort(t_stack **a, t_stack **b);
-int		b_four_optimize_sort(t_stack **a, t_stack **b);
-int		a_four_optimize_sort2(t_stack **a, t_stack **b);
 void	a_exec_three_sort(t_stack **a, t_stack **b);
+int		a_four_sort(t_stack **a, t_stack **b);
+int		a_four_optimize_sort(t_stack **a, t_stack **b);
+int		a_five_sort(t_stack **a, t_stack **b);
 int		a_five_optimize_sort(t_stack **a, t_stack **b);
-int	a_five_optimize_sort2(t_stack **a, t_stack **b);
+
+/*
+int		a_four_optimize_sort(t_stack **a, t_stack **b);
+int		a_four_optimize_sort2(t_stack **a, t_stack **b);
+*/
+//b_optimization
+void	b_three_optimize_sort(t_stack **b);
+void	b_four_optimize_sort(t_stack **a, t_stack **b);
+
+//operation_util
+void	exec_num_ra(t_stack **a, int num);
+void	exec_num_sa_rra(t_stack **a, int num);
+void	exec_num_rb(t_stack **b, int num);
+void	exec_num_sb_rrb(t_stack **b, int num);
 //test
 void	print(t_stack *a, t_stack *b);
 #endif
