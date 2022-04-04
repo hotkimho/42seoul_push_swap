@@ -12,34 +12,27 @@
 
 #include "../include/push_swap.h"
 
-/*
-4 3 2 1
-3 4 2 1
+void	b_exec_three_sort(t_stack **a, t_stack **b)
+{
+	pa(a, b);
+	if (get_stack_size(*b) == 3)
+		a_three_optimize_sort(b);
+	else
+		a_check_three(a, b);
+	pb(b, a);
 
 
-*/
-int	b_four_optimize_sort(t_stack **a, t_stack **b)
-{	
-	
-	if ((*b)->data == get_max_data(*b, 4))
-	{
-		pa(a, b);
-		b_check_three(a, b);
-		pb(b, a);
-		return (0);
-	}
-	else if ((*b)->next->data == get_max_data(*b, 4))
-	{
-		sb(b);
-		pa(a, b);
-		b_check_three(a, b);
-		pb(b, a);
-		return (0);
-	}
-	else 
-		return (1);
-	return (0);
 }
+
+//void	a_exec_four_sort(t_stack **a, t_stack **b)
+//{
+//	pb(b, a);
+//	if (get_stack_size(*a) == 4)
+//		a_four_optimize_sort2(a, b);
+//	else
+//		a_four_optimize_sort(a, b);
+//	pa(a, b);
+//}
 
 void	b_three_optimize_sort(t_stack **b)
 {
@@ -66,4 +59,29 @@ void	b_three_optimize_sort(t_stack **b)
 		rrb(b);
 	}
 	return ;
+}
+
+void	b_four_optimize_sort(t_stack **a, t_stack **b)
+{
+	if ((*b)->data == get_max_data(*b, 4))
+		b_exec_three_sort(a, b);
+	else if ((*b)->next->data == get_max_data(*b, 4))
+	{
+		sb(b);
+		b_exec_three_sort(a, b);
+	}
+	else if ((*b)->next->next->data == get_max_data(*b, 4))
+	{
+		rb(b);
+		exec_num_sb_rrb(b, 1);
+		sb(b);
+		b_exec_three_sort(a, b);
+	}
+	else
+	{
+		exec_num_rb(b, 2);
+		exec_num_sb_rrb(b, 2);
+		sb(b);
+		b_exec_three_sort(a, b);
+	}
 }

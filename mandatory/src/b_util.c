@@ -23,8 +23,6 @@ void	all_push_B_to_A(t_stack **a, t_stack **b, int size)
 {
 	int	i;
 
-	if (!(*a) || !(*b))
-		error_msg("Error\n");
 	i = 0;
 	while (i < size)
 	{

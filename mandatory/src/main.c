@@ -75,7 +75,7 @@ int main(int argc, char *argv[])
 	//a_check_three(&a, &b);
 	//b_four_optimize_sort(&b, &a);
 ///	b_four_optimize_sort(&b, &a);
-	//print(a, b);//2  2 3 5 1 4
+	print(a, b);//2  2 3 5 1 4
 //ARG="4 67 3 87 23"; ./push_swap $ARG | ./checker_OS $ARG
 	//free(a-//>next);
 	//free_stk(&a);
@@ -88,13 +88,13 @@ int main(int argc, char *argv[])
 P
 2 1 3 sa
 3 1 2 ra
-1 2 3 
+1 2 3
 1 3 2 sa ra
 2 1 3 sa
 3 1 2 ra
 
 F
-3 2 1 ra sa 
+3 2 1 ra sa
 2 3 1 rra
 
 */

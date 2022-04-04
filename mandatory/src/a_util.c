@@ -84,3 +84,12 @@ void	a_check_three(t_stack **a, t_stack **b)
 			sa(a);
 	return ;
 }
+
+int		init_sorting(t_stack *stk, int size, int *a_count, int *b_count)
+{
+	if (!stk)
+		error_msg("Error\n");
+	*a_count = 0;
+	*b_count = 0;
+	return get_pivot(stk, size);
+}
