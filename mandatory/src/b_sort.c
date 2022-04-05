@@ -16,6 +16,7 @@ int		b_more_than_four(t_stack **a, t_stack **b, int size)
 {
 	if (size == 4)
 		b_four_optimize_sort(a, b);
+	all_push_B_to_A(a, b, size);
 	return (1);
 }
 
@@ -83,8 +84,12 @@ void	B_to_A(t_stack **a, t_stack **b, int size)
 	int pivot;
 
 	pivot = init_sorting(*b, size, &a_count, &b_count);
+	printf("B - size : %d pivot : %d\n", size, pivot);
 	if (b_check_sorting(a, b, size))
+	{
+		print(*a, *b);
 		return ;
+	}
 	i = -1;
 	while (++i < size)
 	{
@@ -95,6 +100,7 @@ void	B_to_A(t_stack **a, t_stack **b, int size)
 	i = -1;
 	while (++i < b_count)
 		rrb(b);
+	print(*a, *b);
 	A_to_B(a, b, a_count);
 	B_to_A(a, b, size - a_count);
 }

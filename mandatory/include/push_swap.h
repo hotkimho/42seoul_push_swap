@@ -114,6 +114,7 @@ int		a_four_optimize_sort(t_stack **a, t_stack **b);
 //a_optimization_sub
 int		a_five_sort(t_stack **a, t_stack **b);
 int		a_five_optimize_sort(t_stack **a, t_stack **b);
+void	five_last_case(t_stack **a, t_stack **b);
 
 //b_optimization
 void	b_three_optimize_sort(t_stack **b);

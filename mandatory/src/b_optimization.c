@@ -14,11 +14,12 @@
 
 void	b_exec_three_sort(t_stack **a, t_stack **b)
 {
+	printf("실행 : %d\n", get_stack_size(*b));
 	pa(a, b);
 	if (get_stack_size(*b) == 3)
-		a_three_optimize_sort(b);
+		b_three_optimize_sort(b);
 	else
-		a_check_three(a, b);
+		b_check_three(a, b);
 	pb(b, a);
 
 
@@ -61,6 +62,8 @@ void	b_three_optimize_sort(t_stack **b)
 	return ;
 }
 
+
+// 4 2 1 3
 void	b_four_optimize_sort(t_stack **a, t_stack **b)
 {
 	if ((*b)->data == get_max_data(*b, 4))
