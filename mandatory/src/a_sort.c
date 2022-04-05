@@ -83,10 +83,10 @@ void	A_to_B(t_stack **a, t_stack **b, int size)
 	int pivot;
 
 	pivot = init_sorting(*a, size, &a_count, &b_count);
-	printf("A - size : %d pivot : %d\n", size, pivot);
+	//printf("A - size : %d pivot : %d\n", size, pivot);
 	if (a_check_sorting(a, b, size))
 	{
-		print(*a, *b);
+		//print(*a, *b);
 		return ;
 	}
 
@@ -100,7 +100,7 @@ void	A_to_B(t_stack **a, t_stack **b, int size)
 	i = -1;
 	while (++i < a_count)
 		rra(a);
-	print(*a, *b);
+	//print(*a, *b);
 	A_to_B(a, b, size - b_count);
 	B_to_A(a, b, b_count);
 }

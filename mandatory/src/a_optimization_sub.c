@@ -19,9 +19,14 @@ void	five_last_case(t_stack **a, t_stack **b)
 	sa(a);
 	a_exec_three_sort(a, b);
 }
+//32 25 16 33 17
+//4  3  1  5  2
+//4 1 3 5 2
 
+//
 int	a_five_sort(t_stack **a, t_stack **b)
 {
+
 	if ((*a)->data == get_min_data(*a, 5))
 		a_exec_four_sort(a, b);
 	else if ((*a)->next->data == get_min_data(*a, 5))
@@ -34,14 +39,14 @@ int	a_five_sort(t_stack **a, t_stack **b)
 		ra(a);
 		exec_num_sa_rra(a, 1);
 		sa(a);
-		a_exec_three_sort(a, b);
+		a_exec_four_sort(a, b);
 	}
 	else if ((*a)->next->next->next->data == get_min_data(*a, 5))
 	{
 		exec_num_ra(a, 2);
 		exec_num_sa_rra(a, 2);
 		sa(a);
-		a_exec_three_sort(a, b);
+		a_exec_four_sort(a, b);
 	}
 	else
 		five_last_case(a, b);
