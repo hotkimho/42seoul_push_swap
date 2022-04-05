@@ -15,7 +15,7 @@
 void	init_push_a(t_stack **a, t_stack **b)
 {
 	int	i;
-	int stk_length;
+	int	stk_length;
 
 	i = 0;
 	stk_length = get_stack_size(*b);
@@ -26,6 +26,7 @@ void	init_push_a(t_stack **a, t_stack **b)
 		i++;
 	}
 }
+
 void	parse_argv(int argc, char **argv, t_stack **b)
 {
 	int		idx;
@@ -36,7 +37,7 @@ void	parse_argv(int argc, char **argv, t_stack **b)
 	while (++idx < argc)
 	{
 		validate(argv[idx]);
-		split_str = ft_split(argv[idx], ' ');
+		split_str = ft_split(argv[idx], ' ', 0, 0);
 		if (!split_str)
 			error_msg("Error\n");
 		split_idx = 0;

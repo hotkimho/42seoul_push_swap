@@ -12,30 +12,46 @@
 
 #include "../include/push_swap.h"
 
-int		get_pivot(t_stack *stk, int size)
+void	init_i_count(int *i, int *count)
 {
-	int	arr[size];
+	*i = 0;
+	*count = 0;
+}
+
+int	return_pivot(int *arr)
+{
+	int	pivot;
+
+	pivot = arr[0];
+	free(arr);
+	return (pivot);
+}
+
+int	get_pivot(t_stack *stk, int size)
+{
+	int	*arr;
 	int	i;
 	int	j;
 	int	count;
 
+	arr = (int *)malloc(sizeof(int) * size);
+	if (!arr || size == 0)
+		error_msg("Error\n");
 	i = 0;
 	while (i < size)
 	{
 		arr[i++] = stk->data;
 		stk = stk->next;
 	}
-	i = 0;
-	while (i < size)
+	i = -1;
+	while (++i < size)
 	{
-		count = 0;
-		j = 0;
+		init_i_count(&j, &count);
 		while (j < size)
 			if (arr[i] < arr[j++])
 				count++;
 		if (count == (size / 2))
 			return (arr[i]);
-		i++;
 	}
-	return (arr[0]);
+	return (return_pivot(arr));
 }

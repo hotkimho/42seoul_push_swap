@@ -12,7 +12,7 @@
 
 #include "../include/push_swap.h"
 
-int		get_max_data(t_stack *stk, int size)
+int	get_max_data(t_stack *stk, int size)
 {
 	int	data;
 	int	i;
@@ -31,7 +31,7 @@ int		get_max_data(t_stack *stk, int size)
 	return (data);
 }
 
-int		get_min_data(t_stack *stk, int size)
+int	get_min_data(t_stack *stk, int size)
 {
 	int	data;
 	int	i;
@@ -49,20 +49,20 @@ int		get_min_data(t_stack *stk, int size)
 	}
 	return (data);
 }
+
 void	a_check_two(t_stack **a)
 {
 	if (check_ascending(*a, 2))
-		return;
+		return ;
 	sa(a);
 }
-// 4 2 1 3
+
 void	a_check_three(t_stack **a, t_stack **b)
 {
 	if (check_ascending(*a, 3))
 		return ;
 	if ((*a)->data == get_max_data(*a, 3))
 	{
-
 		if ((*a)->next->data > (*a)->next->next->data)
 			sa(a);
 		pb(b, a);
@@ -85,11 +85,11 @@ void	a_check_three(t_stack **a, t_stack **b)
 	return ;
 }
 
-int		init_sorting(t_stack *stk, int size, int *a_count, int *b_count)
+int	init_sorting(t_stack *stk, int size, int *a_count, int *b_count)
 {
 	if (!stk)
 		error_msg("Error\n");
 	*a_count = 0;
 	*b_count = 0;
-	return get_pivot(stk, size);
+	return (get_pivot(stk, size));
 }

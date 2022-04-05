@@ -26,6 +26,7 @@ int	is_digit(char ch)
 		return (1);
 	return (0);
 }
+
 int	ft_atoi(const char *str)
 {
 	int	value;
@@ -60,11 +61,11 @@ void	validate(char *str)
 	while (str[++i])
 	{
 		if (is_digit(str[i]))
-			continue;
+			continue ;
 		else if (is_space(str[i]))
-			continue;
+			continue ;
 		else if (str[i] == '+' || str[i] == '-')
-			continue;
+			continue ;
 		error_msg("Error\n");
 	}
 }

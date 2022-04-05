@@ -12,28 +12,24 @@
 
 #include "../include/push_swap.h"
 
-int		b_more_than_four(t_stack **a, t_stack **b, int size)
+int	b_more_than_four(t_stack **a, t_stack **b, int size)
 {
-	if (size == 4)
+	if (get_stack_size(*b) == 4)
 	{
-		if (get_stack_size(*b) == 4)
-			b_four_optimize_sort(a, b);
-		else
-			b_four_sort(a, b);
-		all_push_B_to_A(a, b, size);
+		b_four_optimize_sort(a, b);
+		all_push_b_to_a(a, b, size);
+		return (1);
 	}
-	else if (size == 5)
+	else if (get_stack_size(*b) == 5)
 	{
-		if (get_stack_size(*b) == 5)
-			b_five_optimize_sort(a, b);
-		else
-			b_five_sort(a, b);
-		all_push_B_to_A(a, b, size);
+		b_five_optimize_sort(a, b);
+		all_push_b_to_a(a, b, size);
+		return (1);
 	}
-	return (1);
+	return (0);
 }
 
-int		b_check_sorting(t_stack **a , t_stack **b, int size)
+int	b_check_sorting(t_stack **a, t_stack **b, int size)
 {
 	if (check_descending(*b, size))
 	{
@@ -46,24 +42,18 @@ int		b_check_sorting(t_stack **a , t_stack **b, int size)
 	else if (size == 2)
 	{
 		b_check_two(b);
-		all_push_B_to_A(a, b, size);
+		all_push_b_to_a(a, b, size);
 	}
 	else if (size == 3)
-	{
-		if (get_stack_size(*b) == 3)
-			b_three_optimize_sort(b);
-		else
-			b_check_three(a, b);
-		all_push_B_to_A(a, b, size);
-	}
+		return (three_sort(a, b));
 	else if (size == 4 || size == 5)
-		return b_more_than_four(a, b, size);
+		return (b_more_than_four(a, b, size));
 	else
 		return (0);
 	return (1);
 }
 
-int		b_check_push(t_stack *stk, int pivot)
+int	b_check_push(t_stack *stk, int pivot)
 {
 	while (stk)
 	{
@@ -74,9 +64,9 @@ int		b_check_push(t_stack *stk, int pivot)
 	return (1);
 }
 
-int		B_to_A_loop(t_stack **a, t_stack **b, int *a_count, int pivot)
+int	b_to_a_loop(t_stack **a, t_stack **b, int *a_count, int pivot)
 {
-	if ((*b)->data >= pivot)
+	if ((*b)->data > pivot)
 	{
 		pa(a, b);
 		*a_count += 1;
@@ -89,31 +79,26 @@ int		B_to_A_loop(t_stack **a, t_stack **b, int *a_count, int pivot)
 	return (0);
 }
 
-void	B_to_A(t_stack **a, t_stack **b, int size)
+void	b_to_a(t_stack **a, t_stack **b, int size)
 {
 	int	i;
-	int a_count;
-	int b_count;
-	int pivot;
+	int	a_count;
+	int	b_count;
+	int	pivot;
 
 	pivot = init_sorting(*b, size, &a_count, &b_count);
-	//printf("B - size : %d pivot : %d\n", size, pivot);
 	if (b_check_sorting(a, b, size))
-	{
-	//print(*a, *b);
 		return ;
-	}
 	i = -1;
 	while (++i < size)
 	{
 		if (b_check_push(*b, pivot))
-			break;
-		b_count += B_to_A_loop(a, b, &a_count, pivot);
+			break ;
+		b_count += b_to_a_loop(a, b, &a_count, pivot);
 	}
 	i = -1;
 	while (++i < b_count)
 		rrb(b);
-	//print(*a, *b);
-	A_to_B(a, b, a_count);
-	B_to_A(a, b, size - a_count);
+	a_to_b(a, b, a_count);
+	b_to_a(a, b, size - a_count);
 }

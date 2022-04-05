@@ -24,7 +24,7 @@ void	push_node(t_stack **stk, int data)
 	{
 		*stk = node;
 		(*stk)->prev = node;
-		return;
+		return ;
 	}
 	node->next = *stk;
 	node->prev = (*stk)->prev;
@@ -32,10 +32,10 @@ void	push_node(t_stack **stk, int data)
 	*stk = node;
 }
 
-int		pop_node(t_stack **stk)
+int	pop_node(t_stack **stk)
 {
-	t_stack	*delNode;
-	int	data;
+	t_stack	*del_node;
+	int		data;
 
 	if (get_stack_size(*stk) == 1)
 	{
@@ -44,15 +44,15 @@ int		pop_node(t_stack **stk)
 		*stk = NULL;
 		return (data);
 	}
-	delNode = *stk;
+	del_node = *stk;
 	(*stk)->next->prev = (*stk)->prev;
 	*stk = (*stk)->next;
-	data = delNode->data;
-	free(delNode);
+	data = del_node->data;
+	free(del_node);
 	return (data);
 }
 
-int		get_stack_size(t_stack *stk)
+int	get_stack_size(t_stack *stk)
 {
 	int	idx;
 

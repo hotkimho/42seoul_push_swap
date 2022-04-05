@@ -14,6 +14,8 @@
 
 void	a_exec_three_sort(t_stack **a, t_stack **b)
 {
+	if (check_ascending((*a)->next, 3))
+		return ;
 	pb(b, a);
 	if (get_stack_size(*a) == 3)
 		a_three_optimize_sort(a);
@@ -24,11 +26,10 @@ void	a_exec_three_sort(t_stack **a, t_stack **b)
 
 void	a_exec_four_sort(t_stack **a, t_stack **b)
 {
+	if (check_ascending((*a)->next, 4))
+		return ;
 	pb(b, a);
-	if (get_stack_size(*a) == 4)
-		a_four_optimize_sort(a, b);
-	else
-		a_four_sort(a, b);
+	a_four_optimize_sort(a, b);
 	pa(a, b);
 }
 
@@ -58,9 +59,7 @@ void	a_three_optimize_sort(t_stack **a)
 	return ;
 }
 
-//32 25 16 33 17
-//4  3  1  5  2
-int	a_four_sort(t_stack **a, t_stack **b)
+void	a_four_optimize_sort(t_stack **a, t_stack **b)
 {
 	if ((*a)->data == get_min_data(*a, 4))
 		a_exec_three_sort(a, b);
@@ -73,39 +72,38 @@ int	a_four_sort(t_stack **a, t_stack **b)
 	{
 		ra(a);
 		sa(a);
-		rra(a);
-		sa(a);
 		a_exec_three_sort(a, b);
 	}
 	else
 	{
-		exec_num_ra(a, 2);
-		exec_num_sa_rra(a, 2);
-		sa(a);
+		rra(a);
 		a_exec_three_sort(a, b);
 	}
-	return (0);
 }
 
-int	a_four_optimize_sort(t_stack **a, t_stack **b)
+void	a_five_optimize_sort(t_stack **a, t_stack **b)
 {
-	if ((*a)->data == get_min_data(*a, 4))
-		a_exec_three_sort(a, b);
-	else if ((*a)->next->data == get_min_data(*a, 4))
+	if ((*a)->data == get_min_data(*a, 5))
+		a_exec_four_sort(a, b);
+	else if ((*a)->next->data == get_min_data(*a, 5))
 	{
 		sa(a);
-		a_exec_three_sort(a, b);
+		a_exec_four_sort(a, b);
 	}
-	else if ((*a)->next->next->data == get_min_data(*a, 4))
+	else if ((*a)->next->next->data == get_min_data(*a, 5))
 	{
-		ra(a);
-		sa(a);
-		a_exec_three_sort(a, b);
+		exec_num_ra(a, 2);
+		a_exec_four_sort(a, b);
+	}
+	else if ((*a)->next->next->next->data == get_min_data(*a, 5))
+	{
+		rra(a);
+		rra(a);
+		a_exec_four_sort(a, b);
 	}
 	else
 	{
 		rra(a);
-		a_exec_three_sort(a, b);
+		a_exec_four_sort(a, b);
 	}
-	return (0);
 }

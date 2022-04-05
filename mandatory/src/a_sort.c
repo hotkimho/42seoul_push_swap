@@ -12,25 +12,7 @@
 
 #include "../include/push_swap.h"
 
-int		a_more_than_four(t_stack **a, t_stack **b, int size)
-{
-	if (size == 4)
-	{
-		if (get_stack_size(*a) == 4)
-			a_four_optimize_sort(a, b);
-		else
-			a_four_sort(a, b);
-	}
-	else if (size == 5)
-	{
-		if (get_stack_size(*a) == 5)
-			a_five_optimize_sort(a, b);
-		else
-			a_five_sort(a, b);
-	}
-	return (1);
-}
-int		a_check_sorting(t_stack **a, t_stack **b, int size)
+int	a_check_sorting(t_stack **a, t_stack **b, int size)
 {
 	if (check_ascending(*a, size))
 		return (1);
@@ -39,18 +21,22 @@ int		a_check_sorting(t_stack **a, t_stack **b, int size)
 	else if (size == 2)
 		a_check_two(a);
 	else if (size == 3)
-		if(get_stack_size(*a) == 3)
+	{
+		if (get_stack_size(*a) == 3)
 			a_three_optimize_sort(a);
 		else
 			a_check_three(a, b);
-	else if (size == 4 || size == 5)
-		return (a_more_than_four(a, b, size));
+	}
+	else if (size == 4 && get_stack_size(*a) == 4)
+		a_four_optimize_sort(a, b);
+	else if (size == 5 && get_stack_size(*a) == 5)
+		a_five_optimize_sort(a, b);
 	else
 		return (0);
 	return (1);
 }
 
-int		a_check_push(t_stack *stk, int pivot)
+int	a_check_push(t_stack *stk, int pivot)
 {
 	while (stk)
 	{
@@ -60,9 +46,10 @@ int		a_check_push(t_stack *stk, int pivot)
 	}
 	return (1);
 }
-int		A_to_B_loop(t_stack **a, t_stack **b, int *b_count, int pivot)
+
+int	a_to_b_loop(t_stack **a, t_stack **b, int *b_count, int pivot)
 {
-	if ((*a)->data >= pivot)
+	if ((*a)->data > pivot)
 	{
 		ra(a);
 		return (1);
@@ -75,32 +62,26 @@ int		A_to_B_loop(t_stack **a, t_stack **b, int *b_count, int pivot)
 	return (0);
 }
 
-void	A_to_B(t_stack **a, t_stack **b, int size)
+void	a_to_b(t_stack **a, t_stack **b, int size)
 {
-	int	i;
-	int a_count;
-	int b_count;
-	int pivot;
+	int		i;
+	int		a_count;
+	int		b_count;
+	int		pivot;
 
 	pivot = init_sorting(*a, size, &a_count, &b_count);
-	//printf("A - size : %d pivot : %d\n", size, pivot);
 	if (a_check_sorting(a, b, size))
-	{
-		//print(*a, *b);
 		return ;
-	}
-
 	i = -1;
 	while (++i < size)
 	{
 		if (a_check_push(*a, pivot))
-			break;
-		a_count += A_to_B_loop(a, b, &b_count, pivot);
+			break ;
+		a_count += a_to_b_loop(a, b, &b_count, pivot);
 	}
 	i = -1;
 	while (++i < a_count)
 		rra(a);
-	//print(*a, *b);
-	A_to_B(a, b, size - b_count);
-	B_to_A(a, b, b_count);
+	a_to_b(a, b, size - b_count);
+	b_to_a(a, b, b_count);
 }

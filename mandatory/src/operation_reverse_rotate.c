@@ -17,7 +17,7 @@ void	rra(t_stack **a)
 	t_stack	*tmp;
 
 	if (*a == NULL)
-		return;
+		return ;
 	if (get_stack_size(*a) <= 1)
 		return ;
 	tmp = (*a)->prev;
@@ -32,7 +32,7 @@ void	rrb(t_stack **b)
 	t_stack	*tmp;
 
 	if (*b == NULL)
-		return;
+		return ;
 	if (get_stack_size(*b) <= 1)
 		return ;
 	tmp = (*b)->prev;

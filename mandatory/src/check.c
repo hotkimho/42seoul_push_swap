@@ -16,27 +16,26 @@ void	check_duplicate(t_stack *stk, int size)
 {
 	int	i;
 	int	j;
-	int	arr[size];
+	int	*arr;
 
 	if (!stk)
 		error_msg("Error\n");
-	i = 0;
-	while (i < size)
+	arr = (int *)malloc(sizeof(int) * size);
+	if (!arr)
+		error_msg("Error\n");
+	i = -1;
+	while (++i < size)
 	{
-		arr[i++] = stk->data;
+		arr[i] = stk->data;
 		stk = stk->next;
 	}
-	i = 0;
-	while (i < (size - 1))
+	i = -1;
+	while (++i < (size - 1))
 	{
-		j = i + 1;
-		while (j < size)
-		{
+		j = i;
+		while (++j < size)
 			if (arr[i] == arr[j])
 				error_msg("Error\n");
-			j++;
-		}
-		i++;
 	}
 }
 
@@ -73,7 +72,6 @@ int	check_descending(t_stack *stk, int size)
 	data = stk->data;
 	while (i < size)
 	{
-
 		if (data < stk->data && i != 0)
 			return (0);
 		data = stk->data;

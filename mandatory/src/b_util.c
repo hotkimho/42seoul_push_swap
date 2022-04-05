@@ -15,11 +15,11 @@
 void	b_check_two(t_stack **b)
 {
 	if (check_descending(*b, 2))
-		return;
+		return ;
 	sb(b);
 }
 
-void	all_push_B_to_A(t_stack **a, t_stack **b, int size)
+void	all_push_b_to_a(t_stack **a, t_stack **b, int size)
 {
 	int	i;
 
@@ -37,17 +37,14 @@ void	b_check_three(t_stack **a, t_stack **b)
 		return ;
 	if ((*b)->data == get_max_data(*b, 3))
 	{
-		if (check_descending(*b, 3))
-			return;
 		rb(b);
-		sb(b);
-		rrb(b);
+		exec_num_sb_rrb(b, 1);
 	}
 	else if ((*b)->next->data == get_max_data(*b, 3))
 	{
 		sb(b);
 		if (check_descending(*b, 3))
-			return;
+			return ;
 		pa(a, b);
 		sb(b);
 		pb(b, a);
@@ -61,5 +58,14 @@ void	b_check_three(t_stack **a, t_stack **b)
 		pb(b, a);
 		sb(b);
 	}
-	return ;
+}
+
+int	three_sort(t_stack **a, t_stack **b)
+{
+	if (get_stack_size(*b) == 3)
+		b_three_optimize_sort(b);
+	else
+		b_check_three(a, b);
+	all_push_b_to_a(a, b, 3);
+	return (1);
 }
