@@ -86,7 +86,7 @@ void	B_to_A(t_stack **a, t_stack **b, int size)
 	//printf("B - size : %d pivot : %d\n", size, pivot);
 	if (b_check_sorting(a, b, size))
 	{
-		//print(*a, *b);
+	//print(*a, *b);
 		return ;
 	}
 	i = -1;

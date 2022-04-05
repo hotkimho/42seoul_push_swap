@@ -14,7 +14,6 @@
 
 void	b_exec_three_sort(t_stack **a, t_stack **b)
 {
-	printf("실행 : %d\n", get_stack_size(*b));
 	pa(a, b);
 	if (get_stack_size(*b) == 3)
 		b_three_optimize_sort(b);
