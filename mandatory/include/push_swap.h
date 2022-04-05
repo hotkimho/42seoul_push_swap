@@ -64,7 +64,7 @@ int		is_space(char c);
 int		is_digit(char ch);
 int		ft_atoi(const char *str);
 void	validate(char *str);
-
+int		check_int_max_value(long long value);
 //ft_split
 char	**ft_error(char **s);
 int		find_size(char *s, char c);

@@ -27,9 +27,18 @@ int	is_digit(char ch)
 	return (0);
 }
 
+int	check_int_max_value(long long value)
+{
+	if (value < -2147483648)
+		error_msg("Error\n");
+	else if (value > 2147483647)
+		error_msg("Error\n");
+	return (value);
+}
+
 int	ft_atoi(const char *str)
 {
-	int	value;
+	long long	value;
 	int	sign;
 
 	sign = 1;
@@ -50,7 +59,7 @@ int	ft_atoi(const char *str)
 		value = value + *str - '0';
 		str++;
 	}
-	return (value * sign);
+	return (check_int_max_value(value * sign));
 }
 
 void	validate(char *str)
