@@ -55,7 +55,7 @@ void	a_check_two(t_stack **a)
 		return;
 	sa(a);
 }
-
+// 4 2 1 3
 void	a_check_three(t_stack **a, t_stack **b)
 {
 	if (check_ascending(*a, 3))

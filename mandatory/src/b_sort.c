@@ -14,11 +14,22 @@
 
 int		b_more_than_four(t_stack **a, t_stack **b, int size)
 {
-	if (get_stack_size(*b) == 4)
-		b_four_optimize_sort(a, b);
-	else
-		b_four_sort(a, b);
-	all_push_B_to_A(a, b, size);
+	if (size == 4)
+	{
+		if (get_stack_size(*b) == 4)
+			b_four_optimize_sort(a, b);
+		else
+			b_four_sort(a, b);
+		all_push_B_to_A(a, b, size);
+	}
+	else if (size == 5)
+	{
+		if (get_stack_size(*b) == 5)
+			b_five_optimize_sort(a, b);
+		else
+			b_five_sort(a, b);
+		all_push_B_to_A(a, b, size);
+	}
 	return (1);
 }
 
@@ -45,7 +56,7 @@ int		b_check_sorting(t_stack **a , t_stack **b, int size)
 			b_check_three(a, b);
 		all_push_B_to_A(a, b, size);
 	}
-	else if (size == 4)
+	else if (size == 4 || size == 5)
 		return b_more_than_four(a, b, size);
 	else
 		return (0);

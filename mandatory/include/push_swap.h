@@ -114,14 +114,20 @@ int		a_four_optimize_sort(t_stack **a, t_stack **b);
 //a_optimization_sub
 int		a_five_sort(t_stack **a, t_stack **b);
 int		a_five_optimize_sort(t_stack **a, t_stack **b);
-void	five_last_case(t_stack **a, t_stack **b);
+void	a_five_last_case(t_stack **a, t_stack **b);
 
 //b_optimization
 void	b_three_optimize_sort(t_stack **b);
+void	b_exec_four_sort(t_stack **a, t_stack **b);
+void	b_exec_three_sort(t_stack **a, t_stack **b);
 void	b_four_sort(t_stack **a, t_stack **b);
 void	b_four_optimize_sort(t_stack **a, t_stack **b);
-void	five_last_case(t_stack **a, t_stack **b);
-void	a_exec_four_sort(t_stack **a, t_stack **b);
+
+
+//b_optimization_sub
+void	b_five_sort(t_stack **a, t_stack **b);
+void	b_five_last_case(t_stack **a, t_stack **b);
+void	b_five_optimize_sort(t_stack **a, t_stack **b);
 
 //operation_util
 void	exec_num_ra(t_stack **a, int num);

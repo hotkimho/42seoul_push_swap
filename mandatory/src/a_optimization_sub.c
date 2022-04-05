@@ -20,8 +20,6 @@ void	five_last_case(t_stack **a, t_stack **b)
 	a_exec_four_sort(a, b);
 }
 
-
-
 int	a_five_sort(t_stack **a, t_stack **b)
 {
 

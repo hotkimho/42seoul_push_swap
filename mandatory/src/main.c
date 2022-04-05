@@ -72,7 +72,7 @@ int main(int argc, char *argv[])
 	check_duplicate(a, get_stack_size(a));
 	A_to_B(&a, &b, get_stack_size(a));
 	//a_five_sort(&a, &b);
-	//print(a, b);//2  2 3 5 1 4
+	print(a, b);//2  2 3 5 1 4
 	//free_stk(&a);
 	//free_stk(&b);
 	exit(0);

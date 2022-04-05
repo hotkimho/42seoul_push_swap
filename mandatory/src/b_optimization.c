@@ -24,15 +24,15 @@ void	b_exec_three_sort(t_stack **a, t_stack **b)
 
 }
 
-//void	b_exec_four_sort(t_stack **a, t_stack **b)
-//{
-//	pb(b, a);
-//	if (get_stack_size(*a) == 4)
-//		a_four_optimize_sort(a, b);
-//	else
-//		a_four_sort(a, b);
-//	pa(a, b);
-//}
+void	b_exec_four_sort(t_stack **a, t_stack **b)
+{
+	pa(a, b);
+	if (get_stack_size(*b) == 4)
+		a_four_optimize_sort(a, b);
+	else
+		a_four_sort(a, b);
+	pb(b, a);
+}
 
 void	b_three_optimize_sort(t_stack **b)
 {
