@@ -18,10 +18,8 @@ void	check_duplicate(t_stack *stk, int size)
 	int	j;
 	int	*arr;
 
-	if (!stk)
-		error_msg("Error\n");
 	arr = (int *)malloc(sizeof(int) * size);
-	if (!arr)
+	if (!stk || size == 0 || !arr)
 		error_msg("Error\n");
 	i = -1;
 	while (++i < size)
@@ -35,8 +33,12 @@ void	check_duplicate(t_stack *stk, int size)
 		j = i;
 		while (++j < size)
 			if (arr[i] == arr[j])
+			{
+				free(arr);
 				error_msg("Error\n");
+			}
 	}
+	free(arr);
 }
 
 int	check_ascending(t_stack *stk, int size)

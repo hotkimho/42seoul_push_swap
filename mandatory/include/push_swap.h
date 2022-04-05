@@ -75,7 +75,7 @@ void	ft_init(int *start, int *s_size, int *i);
 //pivot
 int		get_pivot(t_stack *stk, int size);
 void	init_i_count(int *i, int *count);
-int		return_pivot(int *arr);
+int		return_pivot(int *arr, int i);
 
 //check
 int		check_ascending(t_stack *stk, int size);

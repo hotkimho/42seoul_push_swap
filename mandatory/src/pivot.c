@@ -18,11 +18,14 @@ void	init_i_count(int *i, int *count)
 	*count = 0;
 }
 
-int	return_pivot(int *arr)
+int	return_pivot(int *arr, int i)
 {
 	int	pivot;
 
-	pivot = arr[0];
+	if (i == -1)
+		pivot = 0;
+	else
+		pivot = arr[i];
 	free(arr);
 	return (pivot);
 }
@@ -51,7 +54,7 @@ int	get_pivot(t_stack *stk, int size)
 			if (arr[i] < arr[j++])
 				count++;
 		if (count == (size / 2))
-			return (arr[i]);
+			return (return_pivot(arr, i));
 	}
-	return (return_pivot(arr));
+	return (return_pivot(arr, -1));
 }

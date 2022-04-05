@@ -24,5 +24,6 @@ int	main(int argc, char *argv[])
 	init_push_a(&a, &b);
 	check_duplicate(a, get_stack_size(a));
 	a_to_b(&a, &b, get_stack_size(a));
+	free_stk(&a);
 	exit(0);
 }
