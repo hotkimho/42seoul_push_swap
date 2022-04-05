@@ -39,7 +39,7 @@ int	check_int_max_value(long long value)
 int	ft_atoi(const char *str)
 {
 	long long	value;
-	int	sign;
+	int			sign;
 
 	sign = 1;
 	value = 0;
