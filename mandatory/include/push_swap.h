@@ -118,8 +118,10 @@ void	five_last_case(t_stack **a, t_stack **b);
 
 //b_optimization
 void	b_three_optimize_sort(t_stack **b);
+void	b_four_sort(t_stack **a, t_stack **b);
 void	b_four_optimize_sort(t_stack **a, t_stack **b);
 void	five_last_case(t_stack **a, t_stack **b);
+void	a_exec_four_sort(t_stack **a, t_stack **b);
 
 //operation_util
 void	exec_num_ra(t_stack **a, int num);

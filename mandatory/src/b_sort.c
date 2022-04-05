@@ -14,7 +14,10 @@
 
 int		b_more_than_four(t_stack **a, t_stack **b, int size)
 {
-	b_four_optimize_sort(a, b);
+	if (get_stack_size(*b) == 4)
+		b_four_optimize_sort(a, b);
+	else
+		b_four_sort(a, b);
 	all_push_B_to_A(a, b, size);
 	return (1);
 }

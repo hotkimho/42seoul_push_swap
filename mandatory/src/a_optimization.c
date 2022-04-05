@@ -58,7 +58,8 @@ void	a_three_optimize_sort(t_stack **a)
 	return ;
 }
 
-
+//32 25 16 33 17
+//4  3  1  5  2
 int	a_four_sort(t_stack **a, t_stack **b)
 {
 	if ((*a)->data == get_min_data(*a, 4))
