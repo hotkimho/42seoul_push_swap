@@ -59,9 +59,9 @@ void	init_push_a(t_stack **a, t_stack **b);
 void	parse_argv(int argc, char **argv, t_stack **b);
 
 //parse_util
-int	is_space(char c);
-int	is_digit(char ch);
-int	ft_atoi(const char *str);
+int		is_space(char c);
+int		is_digit(char ch);
+int		ft_atoi(const char *str);
 void	validate(char *str);
 
 //ft_split
@@ -69,6 +69,7 @@ char	**ft_error(char **s);
 int		find_size(char *s, char c);
 void	ft_strcpy(char *dest, char *src, int start, int end);
 char	**ft_split(char *s, char c);
+void	ft_init(int *start, int *s_size);
 
 //pivot
 int		get_pivot(t_stack *stk, int size);
@@ -106,18 +107,18 @@ int		b_more_than_four(t_stack **a, t_stack **b, int size);
 //a_optimization
 void	a_three_optimize_sort(t_stack **a);
 void	a_exec_three_sort(t_stack **a, t_stack **b);
+void	a_exec_four_sort(t_stack **a, t_stack **b);
 int		a_four_sort(t_stack **a, t_stack **b);
 int		a_four_optimize_sort(t_stack **a, t_stack **b);
+
+//a_optimization_sub
 int		a_five_sort(t_stack **a, t_stack **b);
 int		a_five_optimize_sort(t_stack **a, t_stack **b);
 
-/*
-int		a_four_optimize_sort(t_stack **a, t_stack **b);
-int		a_four_optimize_sort2(t_stack **a, t_stack **b);
-*/
 //b_optimization
 void	b_three_optimize_sort(t_stack **b);
 void	b_four_optimize_sort(t_stack **a, t_stack **b);
+void	five_last_case(t_stack **a, t_stack **b);
 
 //operation_util
 void	exec_num_ra(t_stack **a, int num);
