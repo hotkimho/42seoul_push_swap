@@ -76,19 +76,3 @@ int main(int argc, char *argv[])
 	//free_stk(&b);
 	exit(0);
 }
-
-
-/*
-P
-2 1 3 sa
-3 1 2 ra
-1 2 3
-1 3 2 sa ra
-2 1 3 sa
-3 1 2 ra
-
-F
-3 2 1 ra sa
-2 3 1 rra
-
-*/

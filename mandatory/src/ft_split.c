@@ -53,6 +53,12 @@ void	ft_strcpy(char *dest, char *src, int start, int end)
 	dest[i] = 0;
 }
 
+void	ft_init(int *start, int *s_size)
+{
+	*start = 0;
+	*s_size = 0;
+}
+
 char	**ft_split(char *s, char c)
 {
 	char			**split_s;
@@ -63,18 +69,19 @@ char	**ft_split(char *s, char c)
 	if (!s)
 		return (NULL);
 	s_size = find_size(s, c) + 1;
-	if (!(split_s = (char **)malloc(sizeof(char *) * s_size)))
-		return (NULL);
+	split_s = (char **)malloc(sizeof(char *) * s_size);
+	if (!split_s)
+		return NULL;
 	i = -1;
-	start = 0;
-	s_size = 0;
+	ft_init(&start, &s_size);
 	while (++i < ft_strlen(s))
 		if (s[i] != c)
 		{
 			start = i;
 			while (s[i] && s[i] != c)
 				i++;
-			if (!(split_s[s_size] = (char *)malloc(i - start + 1)))
+			split_s[s_size] = (char *)malloc(i - start + 1);
+			if (!split_s)
 				return (ft_error(split_s));
 			ft_strcpy(split_s[s_size++], s, start, i);
 		}
